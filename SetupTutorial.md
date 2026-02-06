@@ -12,4 +12,5 @@ Documentation can be found for the board at [https://docs.platformio.org/en/late
 If you don't want to figure out how to set that up all by yourself, I've got you.
 - In VS Code, open the package manager or extensions manager.
 - Search for the official PlatformIO IDE and click install.
-- At the moment, this is all I have, as I have not had the chance to use this at an actual computer and learn how to set it up through github so just wait or try to figure it out yourself and tell me.
+- You will then want to go to the top search bar and search >PlatformIO:Focus on Quick Access View (It should pop up). If it asks to download anything, say yes, if it's in VS Code
+- This should then open PIO Home. You should be good from here, and you can go ahead and clone the repository! YAA!
