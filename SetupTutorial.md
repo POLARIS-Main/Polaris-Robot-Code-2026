@@ -13,4 +13,7 @@ If you don't want to figure out how to set that up all by yourself, I've got you
 - In VS Code, open the package manager or extensions manager.
 - Search for the official PlatformIO IDE and click install.
 - You will then want to go to the top search bar and search >PlatformIO:Focus on Quick Access View (It should pop up). If it asks to download anything, say yes, if it's in VS Code
-- This should then open PIO Home. You should be good from here, and you can go ahead and clone the repository! YAA!
+- This should then open PIO Home. 
+- You can now open your clone, or clone the repo and open it in VS Code
+- You now want to go to the PIO Home by clicking the home button in the bottom right of your screen
+- Now press open project, and select your clone of the repo, and it should open the clone in a PlatformIO project, making it so you can build and deploy code without going into any other editor.
