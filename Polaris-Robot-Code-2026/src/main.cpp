@@ -15,7 +15,7 @@ void brakeMotor();
 #define RELEASE_SPEED 255    
 
 
-#define COMPRESS_TIME 300  
+#define COMPRESS_TIME 2000  
 #define RELEASE_TIME 150     
 #define BRAKE_TIME 100       
 #define JUMP_INTERVAL 20000   
