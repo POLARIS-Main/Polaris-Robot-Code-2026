@@ -1,0 +1,40 @@
+name: PlatformIO CI
+
+on:
+  push:
+    branches: [main, working]
+  pull_request:
+    branches: [main, working]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11' # Specific versions are more stable than '3.x'
+
+      - name: Cache PlatformIO
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.platformio
+          key: ${{ runner.os }}-pio-${{ hashFiles('**/platformio.ini') }}
+
+      - name: Install PlatformIO
+        run: |
+          python -m pip install --upgrade pip
+          pip install -U platformio
+          # Ensure pio is available in the path for subsequent steps
+          echo "$HOME/.platformio/penv/bin" >> $GITHUB_PATH
+
+      - name: Run PlatformIO Build
+        run: pio run
