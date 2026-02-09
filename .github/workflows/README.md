@@ -1,1 +1,0 @@
-This is simply a GitHub action that makes sure whenever we push or pr any code from either of our brances, branches will probably have to be added to this so it will check them, will have to be able to build prior
