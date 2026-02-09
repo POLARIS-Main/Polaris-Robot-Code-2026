@@ -35,20 +35,19 @@ If you don't want to figure out how to set that up all by yourself, I've got you
 
 ## Code Architecture
 
+```text
 project_root/
 ├── lib/
-│   ├── JumpingMotors/
+│   ├── JumpingMotors/ # Adding Jumping Class Section to be able to clean up and shorten main.cpp
 │   │   ├── JumpingMotors.h
 │   │   └── JumpingMotors.cpp
-│   └── BalanchingSensor/
+│   ├── BalancingSensor/ # Same thing as before but for the Balancing Sensor
 │   │   ├── BalanchingSensor.h
 │   │   └── BalanchingSensor.cpp
-│   └── FlyWheelMotors/
-│   │   ├── FlyWheelMotors.h
-│   │   └── FlyWheelMotors.cpp
+│   └── FlyWheelMotors/ # Same thing but for Fly Wheels
+│       ├── FlyWheelMotors.h
+│       └── FlyWheelMotors.cpp
 ├── src/
 │   └── main.cpp
 └── platformio.ini
-
-
-
+```
