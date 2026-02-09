@@ -33,3 +33,22 @@ If you don't want to figure out how to set that up all by yourself, I've got you
 - You now want to go to the PIO Home by clicking the home button in the bottom right of your screen
 - Now press open project, and select your clone of the repo, and it should open the clone in a PlatformIO project, making it so you can build and deploy code without going into any other editor.
 
+## Code Architecture
+
+project_root/
+├── lib/
+│   ├── JumpingMotors/
+│   │   ├── JumpingMotors.h
+│   │   └── JumpingMotors.cpp
+│   └── BalanchingSensor/
+│   │   ├── BalanchingSensor.h
+│   │   └── BalanchingSensor.cpp
+│   └── FlyWheelMotors/
+│   │   ├── FlyWheelMotors.h
+│   │   └── FlyWheelMotors.cpp
+├── src/
+│   └── main.cpp
+└── platformio.ini
+
+
+
