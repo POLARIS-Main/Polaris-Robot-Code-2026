@@ -23,8 +23,10 @@ void brakeMotor();
 
 #define COMPRESS_TIME 2000
 #define RELEASE_TIME 150  
-#define BRAKE_TIME 100   
+#define BRAKE_TIME 100  //may have to change to higher value depending on how high it jumps 
 #define JUMP_INTERVAL 20000 
+
+#define RAMP_SPEED_STEP 5
 
 unsigned long lastJumpTime = 0;
 
@@ -52,6 +54,7 @@ void loop() {
 }
 
 void jump() {
+  // This should compress the motors, although I don't exactly know the directions we may have to switch them
   motorForward(COMPRESS_SPEED);
   delay(COMPRESS_TIME);
   stopMotor();
@@ -82,7 +85,7 @@ void motorReverseRamp(int targetSpeed, int stepDelay) {
   digitalWrite(MOTOR_B_IN1, LOW);
   digitalWrite(MOTOR_B_IN2, HIGH);
 
-  for (int s = 0; s <= targetSpeed; s += 5) {
+  for (int s = 0; s <= targetSpeed; s += RAMP_SPEED_STEP) {
     analogWrite(MOTOR_A_PWM, s);
     analogWrite(MOTOR_B_PWM, s);
     delay(stepDelay);
@@ -108,4 +111,3 @@ void brakeMotor() {
   digitalWrite(MOTOR_B_IN2, HIGH);
   analogWrite(MOTOR_B_PWM, 255);
 }
-
