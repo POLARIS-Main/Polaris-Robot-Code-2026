@@ -1,6 +1,6 @@
 #include <Arduino.h>
-#include <JumpingMotors.h>
-#include <FlyWheelMotors.h>
+#include "JumpingMotors.h"
+#include "FlyWheelMotors.h"
 
 unsigned long lastJumpTime = 0;
 
@@ -32,9 +32,10 @@ void loop() {
     jump();
     lastJumpTime = millis();
   }
-  flywheelRollCorrection(255, 0); // 0 will be replaced with actual roll value from IMU
-  flywheelPitchCorrection(255, 0);  // 0 will be replaced with actual pitch value from IMU
-}
-
+  if (isJumping) {
+    flywheelRollCorrection(255, 0); // 0 will be replaced with actual roll value from IMU
+    flywheelPitchCorrection(255, 0);  // 0 will be replaced with actual pitch value from IMU
+  }
+} 
 
 

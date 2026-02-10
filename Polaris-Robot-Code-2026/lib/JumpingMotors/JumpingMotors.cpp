@@ -7,6 +7,8 @@
 #define RELEASE_TIME 150  
 #define BRAKE_TIME 100  // may have to change to higher value depending on how high it jumps
 
+boolean isJumping = false;
+
 #define RAMP_SPEED_STEP 5
 
 void motorForward(int speed) {
@@ -60,9 +62,11 @@ void jump() {
   delay(100);
   
   motorReverseRamp(RELEASE_SPEED, 10);
+  isJumping = true;
   delay(RELEASE_TIME);
   
   brakeMotor();
+  isJumping = false;
   delay(BRAKE_TIME);
   stopMotor();
 }
