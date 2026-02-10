@@ -11,7 +11,7 @@
 #define JUMP_MTR_B_IN1 11
 #define JUMP_MTR_B_IN2 12
 
-#define JUMP_INTERVAL 20000
+#define JUMP_INTERVAL 20000 // 20 seconds may have to change for CDR
 
 void motorForward(int speed);
 void motorReverseRamp(int targetSpeed, int stepDelay);
