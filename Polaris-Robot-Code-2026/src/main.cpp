@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "JumpingMotors.h"
 #include "FlyWheelMotors.h"
+#include "BalancingSensors.h"
 
 unsigned long lastJumpTime = 0;
 
@@ -32,6 +33,8 @@ void loop() {
     jump();
     lastJumpTime = millis();
   }
+  flywheelPitchCorrection(100, getCurrentPitch());
+  flywheelRollCorrection(100, getCurrentRoll());
 } 
 
 

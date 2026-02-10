@@ -1,5 +1,6 @@
 #include "JumpingMotors.h"
 #include "FlyWheelMotors.h"
+#include "BalancingSensors.h"
 
 #define COMPRESS_SPEED 50 
 #define RELEASE_SPEED 255  
@@ -57,20 +58,20 @@ void brakeMotor() {
 void jump() {
   // This should compress the motors, although I don't exactly know the directions we may have to switch them
   motorForward(COMPRESS_SPEED);
-  flywheelRollCorrection(50, 0);
-  flywheelPitchCorrection(50, 0);
+  flywheelRollCorrection(50, getCurrentRoll());
+  flywheelPitchCorrection(50, getCurrentPitch());
   delay(COMPRESS_TIME);
   stopMotor();
   delay(100);
   
   motorReverseRamp(RELEASE_SPEED, 10);
-  flywheelRollCorrection(50, 0);
-  flywheelPitchCorrection(50, 0);
+  flywheelRollCorrection(200, getCurrentRoll());
+  flywheelPitchCorrection(200, getCurrentPitch());
   delay(RELEASE_TIME);
   
   brakeMotor();
-  flywheelRollCorrection(50, 0);
-  flywheelPitchCorrection(50, 0);
+  flywheelRollCorrection(150, getCurrentRoll());
+  flywheelPitchCorrection(150, getCurrentPitch());
   delay(BRAKE_TIME);
   stopMotor();
 }
