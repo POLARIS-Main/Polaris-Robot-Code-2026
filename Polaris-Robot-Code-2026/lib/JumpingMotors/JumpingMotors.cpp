@@ -10,46 +10,46 @@
 #define RAMP_SPEED_STEP 5
 
 void motorForward(int speed) {
-  digitalWrite(MOTOR_A_IN1, HIGH);
-  digitalWrite(MOTOR_A_IN2, LOW);
-  digitalWrite(MOTOR_B_IN1, HIGH);
-  digitalWrite(MOTOR_B_IN2, LOW);
+  digitalWrite(JUMP_MTR_A_IN1, HIGH);
+  digitalWrite(JUMP_MTR_A_IN2, LOW);
+  digitalWrite(JUMP_MTR_B_IN1, HIGH);
+  digitalWrite(JUMP_MTR_B_IN2, LOW);
 
-  analogWrite(MOTOR_A_PWM, speed);
-  analogWrite(MOTOR_B_PWM, speed);
+  analogWrite(JUMP_MTR_A_PWM, speed);
+  analogWrite(JUMP_MTR_B_PWM, speed);
 }
 
 void motorReverseRamp(int targetSpeed, int stepDelay) {
-  digitalWrite(MOTOR_A_IN1, LOW);
-  digitalWrite(MOTOR_A_IN2, HIGH);
-  digitalWrite(MOTOR_B_IN1, LOW);
-  digitalWrite(MOTOR_B_IN2, HIGH);
+  digitalWrite(JUMP_MTR_A_IN1, LOW);
+  digitalWrite(JUMP_MTR_A_IN2, HIGH);
+  digitalWrite(JUMP_MTR_B_IN1, LOW);
+  digitalWrite(JUMP_MTR_B_IN2, HIGH);
 
   for (int s = 0; s <= targetSpeed; s += RAMP_SPEED_STEP) {
-    analogWrite(MOTOR_A_PWM, s);
-    analogWrite(MOTOR_B_PWM, s);
+    analogWrite(JUMP_MTR_A_PWM, s);
+    analogWrite(JUMP_MTR_B_PWM, s);
     delay(stepDelay);
   }
 }
 
 void stopMotor() {
-  digitalWrite(MOTOR_A_IN1, LOW);
-  digitalWrite(MOTOR_A_IN2, LOW);
-  analogWrite(MOTOR_A_PWM, 0);
+  digitalWrite(JUMP_MTR_A_IN1, LOW);
+  digitalWrite(JUMP_MTR_A_IN2, LOW);
+  analogWrite(JUMP_MTR_A_PWM, 0);
 
-  digitalWrite(MOTOR_B_IN1, LOW);
-  digitalWrite(MOTOR_B_IN2, LOW);
-  analogWrite(MOTOR_B_PWM, 0);
+  digitalWrite(JUMP_MTR_B_IN1, LOW);
+  digitalWrite(JUMP_MTR_B_IN2, LOW);
+  analogWrite(JUMP_MTR_B_PWM, 0);
 }
 
 void brakeMotor() {
-  digitalWrite(MOTOR_A_IN1, HIGH);
-  digitalWrite(MOTOR_A_IN2, HIGH);
-  analogWrite(MOTOR_A_PWM, 255);
+  digitalWrite(JUMP_MTR_A_IN1, HIGH);
+  digitalWrite(JUMP_MTR_A_IN2, HIGH);
+  analogWrite(JUMP_MTR_A_PWM, 255);
 
-  digitalWrite(MOTOR_B_IN1, HIGH);
-  digitalWrite(MOTOR_B_IN2, HIGH);
-  analogWrite(MOTOR_B_PWM, 255);
+  digitalWrite(JUMP_MTR_B_IN1, HIGH);
+  digitalWrite(JUMP_MTR_B_IN2, HIGH);
+  analogWrite(JUMP_MTR_B_PWM, 255);
 }
 
 void jump() {
