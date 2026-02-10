@@ -32,10 +32,6 @@ void loop() {
     jump();
     lastJumpTime = millis();
   }
-  if (isJumping) {
-    flywheelRollCorrection(255, 0); // 0 will be replaced with actual roll value from IMU
-    flywheelPitchCorrection(255, 0);  // 0 will be replaced with actual pitch value from IMU
-  }
 } 
 
 

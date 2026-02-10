@@ -13,8 +13,6 @@
 
 #define JUMP_INTERVAL 20000 // 20 seconds may have to change for CDR
 
-extern boolean isJumping;
-
 void motorForward(int speed);
 void motorReverseRamp(int targetSpeed, int stepDelay);
 void stopMotor();

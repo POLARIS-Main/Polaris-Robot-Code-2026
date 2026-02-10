@@ -1,4 +1,5 @@
 #include "JumpingMotors.h"
+#include "FlyWheelMotors.h"
 
 #define COMPRESS_SPEED 50 
 #define RELEASE_SPEED 255  
@@ -7,7 +8,6 @@
 #define RELEASE_TIME 150  
 #define BRAKE_TIME 100  // may have to change to higher value depending on how high it jumps
 
-boolean isJumping = false;
 
 #define RAMP_SPEED_STEP 5
 
@@ -57,16 +57,20 @@ void brakeMotor() {
 void jump() {
   // This should compress the motors, although I don't exactly know the directions we may have to switch them
   motorForward(COMPRESS_SPEED);
+  flywheelRollCorrection(50, 0);
+  flywheelPitchCorrection(50, 0);
   delay(COMPRESS_TIME);
   stopMotor();
   delay(100);
   
   motorReverseRamp(RELEASE_SPEED, 10);
-  isJumping = true;
+  flywheelRollCorrection(50, 0);
+  flywheelPitchCorrection(50, 0);
   delay(RELEASE_TIME);
   
   brakeMotor();
-  isJumping = false;
+  flywheelRollCorrection(50, 0);
+  flywheelPitchCorrection(50, 0);
   delay(BRAKE_TIME);
   stopMotor();
 }
