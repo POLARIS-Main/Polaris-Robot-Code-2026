@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <JumpingMotors.h>
+#include <FlyWheelMotors.h>
 
 unsigned long lastJumpTime = 0;
 
@@ -13,6 +14,14 @@ void setup() {
   pinMode(JUMP_MTR_B_PWM, OUTPUT);
   pinMode(JUMP_MTR_B_IN1, OUTPUT);
   pinMode(JUMP_MTR_B_IN2, OUTPUT);
+
+  pinMode(FLYWHEEL_MTR_FRONT_PWM, OUTPUT);
+  pinMode(FLYWHEEL_MTR_FRONT_IN1, OUTPUT);
+  pinMode(FLYWHEEL_MTR_FRONT_IN2, OUTPUT);
+
+  pinMode(FLYWHEEL_MTR_SIDE_PWM, OUTPUT);
+  pinMode(FLYWHEEL_MTR_SIDE_IN1, OUTPUT);
+  pinMode(FLYWHEEL_MTR_SIDE_IN2, OUTPUT);
   
   stopMotor();
   delay(1000);

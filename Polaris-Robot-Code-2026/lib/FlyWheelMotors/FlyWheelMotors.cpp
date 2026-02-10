@@ -3,7 +3,7 @@
 #define CORRECTION_INTERVAL 100
 
 void flywheelRollCorrection(int speed, int roll) {
-  for (abs(roll) > 10) { 
+  if (roll > 10 && roll < 350) { 
     if (roll <= 180) {
       // Make front flywheel spin forward
       Serial.println("Front flywheel forward");
@@ -20,7 +20,7 @@ void flywheelRollCorrection(int speed, int roll) {
 }
 
 void flywheelPitchCorrection(int speed, int pitch) {
-  for (abs(pitch) > 10) { 
+  if (pitch > 10 && pitch < 350) { 
     if (pitch <= 180) {
       // Make side flywheel spin forward
       Serial.println("Side flywheel forward");
