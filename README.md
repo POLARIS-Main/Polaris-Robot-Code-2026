@@ -38,10 +38,12 @@ If you don't want to figure out how to set that up all by yourself, I've got you
 ```text
 project_root/
 ├── lib/
-│   ├── JumpingMotors/ # Adding Jumping Class Section to be able to clean up and shorten main.cpp
+│   ├── JumpingMotors/ # Adding Jumping Class Section to be able 
+						to clean up and shorten main.cpp
 │   │   ├── JumpingMotors.h
 │   │   └── JumpingMotors.cpp
-│   ├── BalancingSensor/ # Same thing as before but for the Balancing Sensor
+│   ├── BalancingSensor/ # Same thing as before but 
+							for the Balancing Sensor
 │   │   ├── BalanchingSensor.h
 │   │   └── BalanchingSensor.cpp
 │   └── FlyWheelMotors/ # Same thing but for Fly Wheels
