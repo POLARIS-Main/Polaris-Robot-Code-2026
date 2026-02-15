@@ -11,6 +11,7 @@
 
 
 #define RAMP_SPEED_STEP 5
+constexpr unsigned long CORRECTION_UPDATE_INTERVAL_MS = 10;
 
 void motorForward(int speed) {
   digitalWrite(JUMP_MTR_A_IN1, HIGH);
@@ -55,23 +56,28 @@ void brakeMotor() {
   analogWrite(JUMP_MTR_B_PWM, 255);
 }
 
+void maintainFlywheelCorrections(int speed, unsigned long duration) {
+  unsigned long start = millis();
+  while (millis() - start < duration) {
+    float roll = getCurrentRoll();
+    float pitch = getCurrentPitch();
+    flywheelRollCorrection(speed, roll);
+    flywheelPitchCorrection(speed, pitch);
+    delay(CORRECTION_UPDATE_INTERVAL_MS);
+  }
+}
+
 void jump() {
   // This should compress the motors, although I don't exactly know the directions we may have to switch them
   motorForward(COMPRESS_SPEED);
-  flywheelRollCorrection(50, getCurrentRoll());
-  flywheelPitchCorrection(50, getCurrentPitch());
-  delay(COMPRESS_TIME);
+  maintainFlywheelCorrections(50, COMPRESS_TIME);
   stopMotor();
-  delay(100);
+  maintainFlywheelCorrections(50, 100);
   
   motorReverseRamp(RELEASE_SPEED, 10);
-  flywheelRollCorrection(200, getCurrentRoll());
-  flywheelPitchCorrection(200, getCurrentPitch());
-  delay(RELEASE_TIME);
+  maintainFlywheelCorrections(200, RELEASE_TIME);
   
   brakeMotor();
-  flywheelRollCorrection(150, getCurrentRoll());
-  flywheelPitchCorrection(150, getCurrentPitch());
-  delay(BRAKE_TIME);
+  maintainFlywheelCorrections(150, BRAKE_TIME);
   stopMotor();
 }

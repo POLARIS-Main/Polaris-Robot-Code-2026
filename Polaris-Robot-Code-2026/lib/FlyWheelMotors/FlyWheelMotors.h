@@ -11,7 +11,11 @@
 #define FLYWHEEL_MTR_SIDE_IN1 5
 #define FLYWHEEL_MTR_SIDE_IN2 4
 
-void flywheelRollCorrection(int speed, int roll);
-void flywheelPitchCorrection(int speed, int pitch);
+using FlywheelCorrectionCallback = void (*)(int speed, float angle);
+
+void flywheelRollCorrection(int speed, float roll);
+void flywheelPitchCorrection(int speed, float pitch);
+void registerRollCorrectionCallback(FlywheelCorrectionCallback callback);
+void registerPitchCorrectionCallback(FlywheelCorrectionCallback callback);
 
 #endif
