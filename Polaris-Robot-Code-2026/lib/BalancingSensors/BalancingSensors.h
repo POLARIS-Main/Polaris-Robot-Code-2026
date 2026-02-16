@@ -1,5 +1,5 @@
-#ifndef BALANCHINGSENSORS_H
-#define BALANCHINGSENSORS_H
+#ifndef BALANCING_SENSORS_H
+#define BALANCING_SENSORS_H
 
 #include <Arduino.h>
 

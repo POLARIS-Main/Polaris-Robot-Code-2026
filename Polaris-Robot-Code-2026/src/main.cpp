@@ -8,6 +8,8 @@ unsigned long lastLedToggleTime = 0;
 constexpr unsigned long LED_BLINK_INTERVAL = 500;
 
 void setup() {
+  Serial.begin(115200);  // Enable serial for debugging
+  
   analogWriteResolution(8); // Set PWM resolution to 8 bits (0-255) so it is like a standard Arduino Uno
 
   pinMode(JUMP_MTR_A_PWM, OUTPUT);
