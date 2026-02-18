@@ -3,13 +3,15 @@
 
 #include <Arduino.h>
 
-#define FLYWHEEL_MTR_FRONT_PWM 3
-#define FLYWHEEL_MTR_FRONT_IN1 2
-#define FLYWHEEL_MTR_FRONT_IN2 1
+// Flywheel motor pins (H-bridge driver)
+// Updated to avoid conflict with SimpleFOC jumping motor (pins 2-7)
+#define FLYWHEEL_MTR_FRONT_PWM 8
+#define FLYWHEEL_MTR_FRONT_IN1 9
+#define FLYWHEEL_MTR_FRONT_IN2 10
 
-#define FLYWHEEL_MTR_SIDE_PWM 6
-#define FLYWHEEL_MTR_SIDE_IN1 5
-#define FLYWHEEL_MTR_SIDE_IN2 4
+#define FLYWHEEL_MTR_SIDE_PWM 11
+#define FLYWHEEL_MTR_SIDE_IN1 12
+#define FLYWHEEL_MTR_SIDE_IN2 14  // Pin 13 is LED_BUILTIN, skip to 14
 
 using FlywheelCorrectionCallback = void (*)(int speed, float angle);
 
